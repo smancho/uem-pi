@@ -12,6 +12,10 @@ import java.sql.SQLException;
 import asiste.CAsiste;
 import asiste.VAsiste;
 import bdd.ConexionOracle;
+import evento.CEvento;
+import evento.VEvento;
+import planifica.CPlanifica;
+import planifica.VPlanifica;
 import usuario.CUsuario;
 import usuario.VUsuario;
 
@@ -35,11 +39,13 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 			e.printStackTrace();
 		}
 		
-		iniciarMenuUsuarios();
+		iniciarMenuUsuario();
+		iniciarMenuEvento();
 		iniciarMenuProyecto();
+		
 	}
 	
-	private void iniciarMenuUsuarios() {
+	private void iniciarMenuUsuario() {
 		vmenu.miUsuarioGestion.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -66,13 +72,43 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
+				VPlanifica vplanifica = new VPlanifica();
+				CPlanifica contVentanaPlanifica = new CPlanifica(vplanifica, conn);
+				vplanifica.setControlador(contVentanaPlanifica);
+				vplanifica.centrarEnPantalla();
+				vplanifica.setVisible(true);
 			}
 		});
 	}
 	
+	private void iniciarMenuEvento() {
+		
+		vmenu.miEventoGestion.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VEvento vevento = new VEvento();
+				CEvento contVentanaEvento = new CEvento(vevento, conn);
+				vevento.setControlador(contVentanaEvento);
+				vevento.centrarEnPantalla();
+				vevento.setVisible(true);
+			}	
+		});
+		
+		vmenu.miEventoAsiste.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VAsiste vasiste = new VAsiste();
+				CAsiste contVentanaAsiste = new CAsiste(vasiste, conn);
+				vasiste.setControlador(contVentanaAsiste);
+				vasiste.centrarEnPantalla();
+				vasiste.setVisible(true);	
+			}	
+		});
+	}
 	private void iniciarMenuProyecto() {
-		// TODO Auto-generated method stub
+		
 	}
 
 	public void mouseClicked(MouseEvent e) {

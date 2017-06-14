@@ -1,6 +1,5 @@
 package planifica;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
@@ -14,8 +13,6 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
-
-import com.toedter.calendar.JDateChooser;
 
 import ventanas.VentanaGenerica;
 
@@ -111,7 +108,7 @@ public class VPlanifica extends VentanaGenerica {
 	}
 	
 	public void setControlador(CPlanifica c) {
-		codigoProyecto.addKeyListener(c);
+		codigoUsuario.addKeyListener(c);
 		codigoProyecto.addKeyListener(c);
 		
 
