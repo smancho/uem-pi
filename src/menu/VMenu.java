@@ -36,10 +36,10 @@ public class VMenu extends VentanaGenerica {
 	protected JMenu menuMaterial;
 	protected JMenu menuProveedor;
 	protected JMenuItem miUsuarioGestion, miUsuarioAsisteEvento, miUsuarioPlanificaProyecto;
-	protected JMenuItem miEventoGestion, miEventoAsiste, miEnventoCalendario;
-	protected JMenuItem miProyectoGestion, miProyectoReserva, miProyectoMaquina;
-	protected JMenuItem miMaquinaGestion, miMaquinaProyecto, miProyectoMaterial;
-	protected JMenuItem miMaterialGestion, miMaterialMaquina, miMaterialLineaPedido;
+	protected JMenuItem miEventoGestion, miEventoAsiste, miEventoCalendario;
+	protected JMenuItem miProyectoGestion, miProyectoReserva, miProyectoUsa, miProyectoPlan;
+	protected JMenuItem miMaquinaGestion, miMaquinaReserva;
+	protected JMenuItem miMaterialGestion, miMaterialProyecto, miMaterialLineaPedido;
 	protected JMenuItem miProveedorGestion, miProveedorPedido;
 
 	public VMenu() {
@@ -66,37 +66,38 @@ public class VMenu extends VentanaGenerica {
 		menuEvento = new JMenu("Evento");
 		miEventoGestion = new JMenuItem("Gestion de evento");
 		miEventoAsiste = new JMenuItem("Asiste a evento");
-		miEnventoCalendario = new JMenuItem("Calendario de eventos");
+		miEventoCalendario = new JMenuItem("Calendario de eventos");
 		menuEvento.add(miEventoGestion);
 		menuEvento.add(miEventoAsiste);
-		menuEvento.add(miEnventoCalendario);
+		menuEvento.add(miEventoCalendario);
 		menuBar.add(menuEvento);
 
 		menuProyecto = new JMenu("Proyecto");
 		miProyectoGestion = new JMenuItem("Gestion de proyecto");
+		miProyectoPlan = new JMenuItem("Usuario que planifica");
+		miProyectoUsa = new JMenuItem("Material que usa");
 		miProyectoReserva = new JMenuItem("Reserva maquina");
-		miProyectoMaquina = new JMenuItem("Maquina que usa");
+		miMaterialProyecto = new JMenuItem("Material que usa");
 		menuProyecto.add(miProyectoGestion);
-		menuProyecto.add(miProyectoMaquina);
+		menuProyecto.add(miProyectoPlan);
+		menuProyecto.add(miProyectoUsa);
 		menuProyecto.add(miProyectoReserva);
 		menuBar.add(menuProyecto);
 
 
 		menuMaquina = new JMenu("Maquina");
 		miMaquinaGestion = new JMenuItem("Gestion de maquina");
-		miMaquinaProyecto = new JMenuItem("Proyecto que la usa");
-		miProyectoMaterial = new JMenuItem("Material que usa");
+		miMaquinaReserva = new JMenuItem("Proyecto que la reserva");
 		menuMaquina.add(miMaquinaGestion);
-		menuMaquina.add(miMaquinaProyecto);
-		menuMaquina.add(miProyectoMaterial);
+		menuMaquina.add(miMaquinaReserva);
 		menuBar.add(menuMaquina);
 
 		menuMaterial = new JMenu("Material");
 		miMaterialGestion = new JMenuItem("Gestion de material");
-		miMaterialMaquina = new JMenuItem("Maquina que lo usa");
+		miMaterialProyecto = new JMenuItem("Proyecto que lo usa");
 		miMaterialLineaPedido = new JMenuItem("Linea de pedido");
 		menuMaterial.add(miMaterialGestion);
-		menuMaterial.add(miMaterialMaquina);
+		menuMaterial.add(miMaterialProyecto);
 		menuMaterial.add(miMaterialLineaPedido);
 		menuBar.add(menuMaterial);
 
@@ -113,15 +114,15 @@ public class VMenu extends VentanaGenerica {
 		miUsuarioPlanificaProyecto.setEnabled(true);
 		miEventoGestion.setEnabled(true);
 		miUsuarioAsisteEvento.setEnabled(true);
-		miEnventoCalendario.setEnabled(true);
+		miEventoCalendario.setEnabled(true);
 		miProyectoGestion.setEnabled(true);
+		miProyectoPlan.setEnabled(true);
 		miProyectoReserva.setEnabled(true);
-		miProyectoMaquina.setEnabled(true);
+		miProyectoUsa.setEnabled(true);
 		miMaquinaGestion.setEnabled(true);
-		miMaquinaProyecto.setEnabled(true);
-		miProyectoMaterial.setEnabled(true);
+		miMaquinaReserva.setEnabled(true);
 		miMaterialGestion.setEnabled(true);
-		miMaterialMaquina.setEnabled(true);
+		miMaterialProyecto.setEnabled(true);
 		miMaterialLineaPedido.setEnabled(true);
 		miProveedorGestion.setEnabled(true);
 		miProveedorPedido.setEnabled(true);
@@ -167,18 +168,23 @@ public class VMenu extends VentanaGenerica {
 		miUsuarioGestion.addActionListener(controlador);
 		miUsuarioAsisteEvento.addActionListener(controlador);
 		miUsuarioPlanificaProyecto.addActionListener(controlador);
+		
 		miEventoGestion.addActionListener(controlador);
 		miUsuarioAsisteEvento.addActionListener(controlador);
-		miEnventoCalendario.addActionListener(controlador);
+		miEventoCalendario.addActionListener(controlador);
+		
 		miProyectoGestion.addActionListener(controlador);
 		miProyectoReserva.addActionListener(controlador);
-		miProyectoMaquina.addActionListener(controlador);
+		miProyectoPlan.addActionListener(controlador);
+		miProyectoUsa.addActionListener(controlador);
+		
 		miMaquinaGestion.addActionListener(controlador);
-		miMaquinaProyecto.addActionListener(controlador);
-		miProyectoMaterial.addActionListener(controlador);
+		miMaquinaReserva.addActionListener(controlador);
+		
 		miMaterialGestion.addActionListener(controlador);
-		miMaterialMaquina.addActionListener(controlador);
+		miMaterialProyecto.addActionListener(controlador);
 		miMaterialLineaPedido.addActionListener(controlador);
+		
 		miProveedorGestion.addActionListener(controlador);
 		miProveedorPedido.addActionListener(controlador);
 

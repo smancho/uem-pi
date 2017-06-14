@@ -15,8 +15,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import com.toedter.calendar.JDateChooser;
-
 import ventanas.VentanaGenerica;
 
 public class VLineaPedido extends VentanaGenerica {
@@ -142,8 +140,7 @@ public class VLineaPedido extends VentanaGenerica {
 		codigoPedido.addKeyListener(c);
 		codigoMaterial.addKeyListener(c);
 		cantidad.addKeyListener(c);
-		precio.addKeyListener(c);
-		
+		precio.addKeyListener(c);		
 
 		btnNuevaLinea.addActionListener(c);
 		btnBuscarLinea.addActionListener(c);

@@ -17,7 +17,9 @@ import javax.swing.table.DefaultTableModel;
 
 import com.toedter.calendar.JDateChooser;
 
-public class VPedido extends JFrame {
+import ventanas.VentanaGenerica;
+
+public class VPedido extends VentanaGenerica {
 
 	private static final long serialVersionUID = 1L;
 	

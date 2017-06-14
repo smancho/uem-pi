@@ -1,8 +1,6 @@
 package proyecto;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
 
 import javax.swing.ImageIcon;
@@ -16,8 +14,10 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import ventanas.VentanaGenerica;
 
-public class VProyecto extends JFrame {
+
+public class VProyecto extends VentanaGenerica {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
