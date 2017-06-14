@@ -54,17 +54,17 @@ public class VAsiste extends VentanaGenerica {
 				new String[] { "Usuario", "Evento" }));
 		scrollPane.setViewportView(table);
 
-		lblCodigoUsuario = new JLabel("ID Usuario:");
-		lblCodigoUsuario.setBounds(49, 75, 90, 16);
+		lblCodigoUsuario = new JLabel("Codigo usuario:");
+		lblCodigoUsuario.setBounds(49, 75, 105, 16);
 		contentPane.add(lblCodigoUsuario);
 
 		lblCodigoEvento = new JLabel("Codigo evento:");
-		lblCodigoEvento.setBounds(49, 100, 105, 16);
+		lblCodigoEvento.setBounds(49, 110, 105, 16);
 		contentPane.add(lblCodigoEvento);
 
 		lblAviso = new JLabel("");
 		lblAviso.setForeground(Color.RED);
-		lblAviso.setBounds(200, 35, 200, 14);
+		lblAviso.setBounds(148, 30, 200, 14);
 		contentPane.add(lblAviso);
 		
 		lblLogoLabel = new JLabel("");
@@ -74,12 +74,12 @@ public class VAsiste extends VentanaGenerica {
 
 		codigoUsuario = new JTextField();
 		codigoUsuario.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		codigoUsuario.setBounds(130, 75, 120, 16);
+		codigoUsuario.setBounds(151, 75, 120, 16);
 		contentPane.add(codigoUsuario);
 		codigoUsuario.setColumns(10);
 		
 		codigoEvento = new JTextField();
-		codigoEvento.setBounds(150, 100, 100, 16);
+		codigoEvento.setBounds(150, 110, 120, 16);
 		contentPane.add(codigoEvento);
 		codigoEvento.setColumns(10);
 
@@ -88,7 +88,7 @@ public class VAsiste extends VentanaGenerica {
 		contentPane.add(btnNuevaAsistencia);
 
 		btnBuscarAsistencia = new JButton("Buscar asistencia");
-		btnBuscarAsistencia.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnBuscarAsistencia.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
 		btnBuscarAsistencia.setBounds(535, 217, 134, 29);
 		contentPane.add(btnBuscarAsistencia);
 		

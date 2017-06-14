@@ -69,7 +69,7 @@ public class VPedido extends JFrame {
 		contentPane.add(lblPrecio);
 
 		JLabel lblCif = new JLabel("CIF proveedor:");
-		lblCif.setBounds(49, 135, 95, 16);
+		lblCif.setBounds(49, 140, 95, 16);
 		contentPane.add(lblCif, BorderLayout.WEST);
 
 		lblAviso = new JLabel("");
@@ -91,7 +91,7 @@ public class VPedido extends JFrame {
 		precioTotal.setColumns(10);
 
 		cifProveedor = new JTextField();
-		cifProveedor.setBounds(150, 135, 200, 16);
+		cifProveedor.setBounds(150, 140, 200, 16);
 		contentPane.add(cifProveedor, BorderLayout.CENTER);
 		cifProveedor.setColumns(10);
 

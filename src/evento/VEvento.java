@@ -59,10 +59,11 @@ public class VEvento extends VentanaGenerica {
 		table = new JTable();
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Usuario", "Evento" }));
+				new String[] { "Cod. Evento", "Tipo Evento", "Descripcion", 
+						"Fecha Inicio", "Fecha Fin" }));
 		scrollPane.setViewportView(table);
 
-		lblCodigoEvento = new JLabel("Codigo Evento:");
+		lblCodigoEvento = new JLabel("Codigo evento:");
 		lblCodigoEvento.setBounds(49, 40, 105, 16);
 		contentPane.add(lblCodigoEvento);
 
@@ -85,7 +86,7 @@ public class VEvento extends VentanaGenerica {
 		
 		lblAviso = new JLabel("");
 		lblAviso.setForeground(Color.RED);
-		lblAviso.setBounds(200, 35, 200, 14);
+		lblAviso.setBounds(362, 115, 239, 14);
 		contentPane.add(lblAviso);
 		
 		lblLogoLabel = new JLabel("");
@@ -120,7 +121,7 @@ public class VEvento extends VentanaGenerica {
 		contentPane.add(fechaFin, BorderLayout.NORTH);
 		
 
-		btnNuevoEvento = new JButton("Nuevo Evento");
+		btnNuevoEvento = new JButton("Nuevo evento");
 		btnNuevoEvento.setBounds(535, 150, 134, 29);
 		contentPane.add(btnNuevoEvento);
 
@@ -130,12 +131,12 @@ public class VEvento extends VentanaGenerica {
 		btnBuscarEvento .setBounds(535, 185, 134, 29);
 		contentPane.add(btnBuscarEvento );
 		
-		btnModificarEvento = new JButton("Modificar pedido");
+		btnModificarEvento = new JButton("Modificar evento");
 		btnModificarEvento.setEnabled(false);
 		btnModificarEvento.setBounds(535, 220, 134, 29);
 		contentPane.add(btnModificarEvento);
 		
-		btnBorrarEvento = new JButton("Borrar asistencia");
+		btnBorrarEvento = new JButton("Borrar evento");
 		btnBorrarEvento.setEnabled(false);
 		btnBorrarEvento.setBounds(535, 255, 134, 29);
 		contentPane.add(btnBorrarEvento);

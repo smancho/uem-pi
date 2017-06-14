@@ -64,8 +64,8 @@ public class VUsuario extends VentanaGenerica {
 						"Telefono", "Tipo" }));
 		scrollPane.setViewportView(table);
 
-		lblUsuarioID = new JLabel("ID Usuario:");
-		lblUsuarioID.setBounds(49, 35, 61, 16);
+		lblUsuarioID = new JLabel("Codigo usuario:");
+		lblUsuarioID.setBounds(49, 35, 100, 16);
 		contentPane.add(lblUsuarioID);
 
 		lblNombre = new JLabel("Nombre:");
@@ -84,8 +84,8 @@ public class VUsuario extends VentanaGenerica {
 		lblTelefono.setBounds(49, 115, 61, 16);
 		contentPane.add(lblTelefono);
 
-		lblTipoUsuario = new JLabel("Tipo de usuario:");
-		lblTipoUsuario.setBounds(49, 135, 89, 16);
+		lblTipoUsuario = new JLabel("Tipo usuario:");
+		lblTipoUsuario.setBounds(49, 135, 90, 16);
 		contentPane.add(lblTipoUsuario);
 
 		lblAviso = new JLabel("");
@@ -100,7 +100,7 @@ public class VUsuario extends VentanaGenerica {
 
 		usuarioID = new JTextField();
 		usuarioID.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		usuarioID.setBounds(120, 35, 70, 16);
+		usuarioID.setBounds(150, 35, 90, 16);
 		contentPane.add(usuarioID);
 		usuarioID.setColumns(10);
 		
@@ -125,7 +125,7 @@ public class VUsuario extends VentanaGenerica {
 		userPhone.setColumns(10);
 
 		userKind = new JTextField();
-		userKind.setBounds(148, 135, 172, 16);
+		userKind.setBounds(140, 135, 184, 16);
 		contentPane.add(userKind);
 		userKind.setColumns(10);
 

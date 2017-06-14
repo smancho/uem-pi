@@ -58,14 +58,14 @@ public class VReserva extends VentanaGenerica {
 		table = new JTable();
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Usuario", "Evento" }));
+				new String[] { "Proyecto", "Maquina", "Fecha Inicio", "Fecha Fin" }));
 		scrollPane.setViewportView(table);
 
-		lblcodigoProyecto = new JLabel("Codigo Proyecto:");
+		lblcodigoProyecto = new JLabel("Codigo proyecto:");
 		lblcodigoProyecto.setBounds(49, 60, 117, 16);
 		contentPane.add(lblcodigoProyecto);
 
-		lblcodigoMaquina = new JLabel("Codigo Maquina:");
+		lblcodigoMaquina = new JLabel("Codigo maquina:");
 		lblcodigoMaquina.setBounds(49, 85, 117, 16);
 		contentPane.add(lblcodigoMaquina);
 
@@ -116,8 +116,8 @@ public class VReserva extends VentanaGenerica {
 
 
 		btnBuscarReserva = new JButton("Buscar reserva");
-		btnBuscarReserva .setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		btnBuscarReserva .setBounds(535, 217, 134, 29);
+		btnBuscarReserva.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		btnBuscarReserva.setBounds(535, 217, 134, 29);
 		contentPane.add(btnBuscarReserva );
 		
 		btnBorrarReserva = new JButton("Borrar reserva");

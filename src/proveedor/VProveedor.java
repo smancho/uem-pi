@@ -6,6 +6,8 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import usuario.VUsuario;
+
 public class VProveedor extends JFrame {
 	
 	private static final long serialVersionUID = 1L;
@@ -28,8 +30,8 @@ public class VProveedor extends JFrame {
 	protected JTextField telefono;
 	protected JTextField mail;
 	protected JLabel lblAviso;
+	protected JLabel lblLogoLabel;
 	protected JLabel lblNewLabel;
-	private JLabel lblLogoLabel;
 
 	public VProveedor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,8 +84,13 @@ public class VProveedor extends JFrame {
 
 		lblAviso = new JLabel("");
 		lblAviso.setForeground(Color.RED);
-		lblAviso.setBounds(350, 110, 330, 28);
+		lblAviso.setBounds(350, 110, 330, 20);
 		contentPane.add(lblAviso, BorderLayout.CENTER);
+		
+		lblLogoLabel = new JLabel("");
+		lblLogoLabel.setIcon(new ImageIcon(VUsuario.class.getResource("/img/LogoFablab.png")));
+		lblLogoLabel.setBounds(440, 30, 206, 60);
+		contentPane.add(lblLogoLabel);
 
 		CIF = new JTextField();
 		CIF.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
@@ -130,6 +137,7 @@ public class VProveedor extends JFrame {
 		contentPane.add(btnBuscarProveedor);
 
 		btnModificarProveedor = new JButton("Modificar proveedor");
+		btnModificarProveedor.setFont(new Font("Lucida Grande", Font.PLAIN, 11));
 		btnModificarProveedor.setEnabled(false);
 		btnModificarProveedor.setBounds(535, 220, 134, 29);
 		contentPane.add(btnModificarProveedor);
