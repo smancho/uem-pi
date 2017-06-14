@@ -87,15 +87,16 @@ public class VAsiste extends VentanaGenerica {
 		btnNuevaAsistencia.setBounds(535, 177, 134, 29);
 		contentPane.add(btnNuevaAsistencia);
 
+		btnBuscarAsistencia = new JButton("Buscar asistencia");
+		btnBuscarAsistencia.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnBuscarAsistencia.setBounds(535, 217, 134, 29);
+		contentPane.add(btnBuscarAsistencia);
+		
 		btnBorrarAsistencia = new JButton("Borrar asistencia");
 		btnBorrarAsistencia.setEnabled(false);
 		btnBorrarAsistencia.setBounds(535, 257, 134, 29);
 		contentPane.add(btnBorrarAsistencia);
 
-		btnBuscarAsistencia = new JButton("Buscar asistencia");
-		btnBuscarAsistencia.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		btnBuscarAsistencia.setBounds(535, 217, 134, 29);
-		contentPane.add(btnBuscarAsistencia);
 
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(550, 300, 117, 29);
