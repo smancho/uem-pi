@@ -57,11 +57,11 @@ public class VPedido extends JFrame {
 		scrollPane.setViewportView(table);
 
 		JLabel lblCodigo = new JLabel("Codigo pedido:");
-		lblCodigo.setBounds(49, 65, 76, 16);
+		lblCodigo.setBounds(49, 65, 105, 16);
 		contentPane.add(lblCodigo, BorderLayout.NORTH);
 
 		JLabel lblFecha = new JLabel("Fecha pedido:");
-		lblFecha.setBounds(49, 90, 80, 16);
+		lblFecha.setBounds(49, 90, 105, 16);
 		contentPane.add(lblFecha);
 
 		JLabel lblPrecio = new JLabel("Precio total:");
@@ -69,7 +69,7 @@ public class VPedido extends JFrame {
 		contentPane.add(lblPrecio);
 
 		JLabel lblCif = new JLabel("CIF proveedor:");
-		lblCif.setBounds(49, 135, 90, 16);
+		lblCif.setBounds(49, 135, 95, 16);
 		contentPane.add(lblCif, BorderLayout.WEST);
 
 		lblAviso = new JLabel("");
@@ -79,19 +79,19 @@ public class VPedido extends JFrame {
 
 		codigoPedido = new JTextField();
 		codigoPedido.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		codigoPedido.setBounds(135, 65, 200, 16);
+		codigoPedido.setBounds(150, 65, 200, 16);
 		contentPane.add(codigoPedido);
 		codigoPedido.setColumns(10);
 		
 		
 
 		precioTotal = new JTextField();
-		precioTotal.setBounds(135, 115, 200, 16);
+		precioTotal.setBounds(150, 115, 200, 16);
 		contentPane.add(precioTotal);
 		precioTotal.setColumns(10);
 
 		cifProveedor = new JTextField();
-		cifProveedor.setBounds(135, 135, 200, 16);
+		cifProveedor.setBounds(150, 135, 200, 16);
 		contentPane.add(cifProveedor, BorderLayout.CENTER);
 		cifProveedor.setColumns(10);
 
@@ -128,7 +128,7 @@ public class VPedido extends JFrame {
 		
 		fecha = new JDateChooser();
 		fecha.setDateFormatString("yyyy-MM-dd");
-		fecha.setBounds(135, 90, 170, 18);
+		fecha.setBounds(150, 90, 170, 18);
 		contentPane.add(fecha, BorderLayout.NORTH);
 		// fecha.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{fecha.getCalendarButton()}));
 

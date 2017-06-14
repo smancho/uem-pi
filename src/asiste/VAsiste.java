@@ -1,9 +1,7 @@
 package asiste;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -61,7 +59,7 @@ public class VAsiste extends VentanaGenerica {
 		contentPane.add(lblCodigoUsuario);
 
 		lblCodigoEvento = new JLabel("Codigo evento:");
-		lblCodigoEvento.setBounds(49, 95, 90, 16);
+		lblCodigoEvento.setBounds(49, 100, 105, 16);
 		contentPane.add(lblCodigoEvento);
 
 		lblAviso = new JLabel("");
@@ -76,12 +74,12 @@ public class VAsiste extends VentanaGenerica {
 
 		codigoUsuario = new JTextField();
 		codigoUsuario.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		codigoUsuario.setBounds(150, 75, 70, 16);
+		codigoUsuario.setBounds(130, 75, 120, 16);
 		contentPane.add(codigoUsuario);
 		codigoUsuario.setColumns(10);
 		
 		codigoEvento = new JTextField();
-		codigoEvento.setBounds(150, 95, 70, 16);
+		codigoEvento.setBounds(150, 100, 100, 16);
 		contentPane.add(codigoEvento);
 		codigoEvento.setColumns(10);
 
@@ -109,11 +107,6 @@ public class VAsiste extends VentanaGenerica {
 
 	}
 	
-	public void centrarEnPantalla() {
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		this.setBounds(0, 0, dim.width, dim.height);		
-	}
-
 	public void setControlador(CAsiste c) {
 		codigoUsuario.addKeyListener(c);
 		codigoEvento.addKeyListener(c);
