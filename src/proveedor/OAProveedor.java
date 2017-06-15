@@ -1,7 +1,6 @@
 package proveedor;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,19 +8,10 @@ import java.util.ArrayList;
 
 public class OAProveedor {
 
-	private String surl= "jdbc:oracle:thin:@localhost:1521:XE";
-	private Connection conexion;
+private Connection conexion;
 	
-	public OAProveedor(){
-		try{
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conexion=DriverManager.getConnection(surl, "PROYECTO", "Morpheu$");
-			System.out.println("Conexion con Oracle establecida.");
-		}
-		catch(Exception e){
-			System.out.println("Error de Conexion con Oracle.");
-			e.printStackTrace();
-		}
+	public OAProveedor(Connection conexion) {
+		this.conexion = conexion;
 	}
 	
 	public void cargarProveedores(ArrayList<Proveedor> proveedores){

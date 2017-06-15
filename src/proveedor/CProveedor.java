@@ -7,19 +7,21 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 import javax.swing.table.DefaultTableModel;
 
 public class CProveedor extends MouseAdapter implements ActionListener,
-		KeyListener {
+		KeyListener  {
 
 	VProveedor vproveedor = null;
 	ArrayList<Proveedor> proveedores = null;
-	OAProveedor conexion = null;
+	OAProveedor bbdd = null;
 	int fila = -1;
 	
 	public static final int BUTTONS_STATE_DEFAULT = 0;
@@ -36,11 +38,12 @@ public class CProveedor extends MouseAdapter implements ActionListener,
 
 	}
 
-	public CProveedor(VProveedor vproveedor, OAProveedor conexionBBDD) {
+	public CProveedor(VProveedor vproveedor, Connection con) {
+		this.bbdd = new OAProveedor(con);
 		this.vproveedor = vproveedor;
 		this.proveedores = new ArrayList<Proveedor>();
-		conexionBBDD.cargarProveedores(this.proveedores);
-		this.conexion = conexionBBDD;
+		
+		this.bbdd.cargarProveedores(this.proveedores);
 	}
 
 	public void rellenarTabla() {
@@ -76,7 +79,6 @@ public class CProveedor extends MouseAdapter implements ActionListener,
 			borrarProveedor();
 		} else if (obj == vproveedor.btnCancelar) {
 			resetFormFields();
-
 		} else if (obj == vproveedor.btnSalir) {
 			vproveedor.dispose();
 		}
@@ -108,7 +110,7 @@ public class CProveedor extends MouseAdapter implements ActionListener,
 		table.setValueAt(p.getTelefono(), fila, 5);
 		table.setValueAt(p.getMail(), fila, 6);
 
-		conexion.modificarProveedor(p);
+		bbdd.modificarProveedor(p);
 
 		resetFormFields();
 
@@ -119,13 +121,13 @@ public class CProveedor extends MouseAdapter implements ActionListener,
 		String cif = vproveedor.CIF.getText();
 		setButtonsState(CProveedor.BUTTONS_STATE_MODIFY);
 		if (cif.trim().equals("")) {
-			vproveedor.lblAviso.setText("El campo CIF no puede estar vacío");
+			vproveedor.lblAviso.setText("El campo CIF no puede estar vacï¿½o");
 			return;
 		}
 		
 		vproveedor.lblAviso.setText("");
 
-		ArrayList<Proveedor> proveedores = conexion.buscarProveedorPorCIF(cif);
+		ArrayList<Proveedor> proveedores = bbdd.buscarProveedorPorCIF(cif);
 		DefaultTableModel model = (DefaultTableModel)vproveedor.table.getModel();
 		int rowCount = model.getRowCount();
 		for (Proveedor proveedor : proveedores) {
@@ -147,7 +149,7 @@ public class CProveedor extends MouseAdapter implements ActionListener,
 		DefaultTableModel table = (DefaultTableModel) vproveedor.table
 				.getModel();
 
-		conexion.borrarProveedor(vproveedor.CIF.getText());
+		bbdd.borrarProveedor(vproveedor.CIF.getText());
 		table.removeRow(fila);
 		proveedores.remove(fila);
 
@@ -172,7 +174,7 @@ public class CProveedor extends MouseAdapter implements ActionListener,
 
 				proveedores.add(p);
 
-				conexion.insertarProveedor(p);
+				bbdd.insertarProveedor(p);
 				DefaultTableModel table = (DefaultTableModel) vproveedor.table
 						.getModel();
 				table.addRow(new Object[] { p.getCif(), p.getNombre(),
@@ -331,7 +333,7 @@ public class CProveedor extends MouseAdapter implements ActionListener,
 			return false;
 		if (vproveedor.CP.getText().equals(EMPTY_STRING))
 			return false;
-		// @TODO validar que es un teléfono válido
+		// @TODO validar que es un telï¿½fono vï¿½lido
 		if (vproveedor.telefono.getText().equals(EMPTY_STRING))
 			return false;
 		// @TODO validar que es un email (formato)
