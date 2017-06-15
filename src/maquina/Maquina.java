@@ -7,6 +7,9 @@ public class Maquina {
 	private String descripcion;
 	private boolean disponibilidad;
 
+	public Maquina() {
+	}
+	
 	public Maquina(int codigoMaquina, String nombreMaquina, String descripcion,
 			boolean disponibilidad) {
 		super();
@@ -48,4 +51,11 @@ public class Maquina {
 		this.disponibilidad = disponibilidad;
 	}
 
+	public String disponibilidad() {
+		String disponible = "NO DISPONIBLE";
+		if (this.isDisponibilidad()) {
+			disponible = "DISPONIBLE";
+		}
+		return disponible;
+	}
 }

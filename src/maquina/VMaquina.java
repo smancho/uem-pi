@@ -22,18 +22,10 @@ public class VMaquina extends VentanaGenerica {
 
 	private static final long serialVersionUID = 1L;
 	protected JPanel contentPane;
-	protected JTable table;
-	protected JButton btnNuevaMaquina;
-	protected JButton btnBuscarMaquina;
-	protected JButton btnModificarMaquina;
-	protected JButton btnBorrarMaquina;
-	protected JButton btnCancelar;
-	protected JButton btnSalir;
 	protected JTextField codigoMaquina;
 	protected JTextField nombreMaquina;
 	protected JTextField descripcion;
 	protected JTextField disponibilidad;
-	protected JLabel lblAviso;
 	protected JLabel lblLogoLabel;
 	protected JLabel lblCodigoMaquina;
 	protected JLabel lblNombreMaquina;
@@ -107,26 +99,26 @@ public class VMaquina extends VentanaGenerica {
 		contentPane.add(disponibilidad, BorderLayout.NORTH);
 		
 
-		btnNuevaMaquina = new JButton("Nueva maquina");
-		btnNuevaMaquina.setBounds(535, 150, 134, 29);
-		contentPane.add(btnNuevaMaquina);
+		btnNuevo = new JButton("Nueva maquina");
+		btnNuevo.setBounds(535, 150, 134, 29);
+		contentPane.add(btnNuevo);
 
 
-		btnBuscarMaquina = new JButton("Buscar maquina");
-		btnBuscarMaquina.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		btnBuscarMaquina.setBounds(535, 185, 134, 29);
-		contentPane.add(btnBuscarMaquina );
+		btnBuscar = new JButton("Buscar maquina");
+		btnBuscar.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		btnBuscar.setBounds(535, 185, 134, 29);
+		contentPane.add(btnBuscar );
 		
-		btnModificarMaquina = new JButton("Modificar maquina");
-		btnModificarMaquina.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
-		btnModificarMaquina.setEnabled(false);
-		btnModificarMaquina.setBounds(535, 220, 134, 29);
-		contentPane.add(btnModificarMaquina);
+		btnModificar = new JButton("Modificar maquina");
+		btnModificar.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
+		btnModificar.setEnabled(false);
+		btnModificar.setBounds(535, 220, 134, 29);
+		contentPane.add(btnModificar);
 		
-		btnBorrarMaquina = new JButton("Borrar maquina");
-		btnBorrarMaquina.setEnabled(false);
-		btnBorrarMaquina.setBounds(535, 255, 134, 29);
-		contentPane.add(btnBorrarMaquina);
+		btnBorrar = new JButton("Borrar maquina");
+		btnBorrar.setEnabled(false);
+		btnBorrar.setBounds(535, 255, 134, 29);
+		contentPane.add(btnBorrar);
 
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(550, 300, 117, 29);
@@ -145,10 +137,10 @@ public class VMaquina extends VentanaGenerica {
 		disponibilidad.addKeyListener(c);
 		
 
-		btnNuevaMaquina.addActionListener(c);
-		btnBuscarMaquina.addActionListener(c);
-		btnModificarMaquina.addActionListener(c);
-		btnBorrarMaquina.addActionListener(c);
+		btnNuevo.addActionListener(c);
+		btnBuscar.addActionListener(c);
+		btnModificar.addActionListener(c);
+		btnBorrar.addActionListener(c);
 		btnCancelar.addActionListener(c);
 		btnSalir.addActionListener(c);
 		table.addMouseListener(c);

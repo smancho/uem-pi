@@ -8,6 +8,9 @@ public class Material {
 	private String descripcion;
 	private int stock;
 
+	public Material() {
+	}
+	
 	public Material(int codigoMaterial, String nombreMaterial,
 			String tipoMaterial, String descripcion, int stock) {
 		super();

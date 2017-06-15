@@ -21,19 +21,11 @@ public class VMaterial extends VentanaGenerica {
 
 	private static final long serialVersionUID = 1L;
 	protected JPanel contentPane;
-	protected JTable table;
-	protected JButton btnNuevoMaterial;
-	protected JButton btnBuscarMaterial;
-	protected JButton btnModificarMaterial;
-	protected JButton btnBorrarMaterial;
-	protected JButton btnCancelar;
-	protected JButton btnSalir;
 	protected JTextField codigoMaterial;
 	protected JTextField nombreMaterial;
 	protected JTextField tipoMaterial;
 	protected JTextField descripcion;
 	protected JTextField stock;
-	protected JLabel lblAviso;
 	protected JLabel lblLogoLabel;
 	protected JLabel lblCodigoMaterial;
 	protected JLabel lblNombreMaterial;
@@ -79,7 +71,7 @@ public class VMaterial extends VentanaGenerica {
 		lblDescripcion.setBounds(49, 95, 90, 16);
 		contentPane.add(lblDescripcion);
 
-		lblStock = new JLabel("Telefono:");
+		lblStock = new JLabel("Stock:");
 		lblStock.setBounds(49, 115, 61, 16);
 		contentPane.add(lblStock);
 
@@ -119,24 +111,24 @@ public class VMaterial extends VentanaGenerica {
 		contentPane.add(stock);
 		stock.setColumns(10);
 
-		btnNuevoMaterial = new JButton("Nuevo material");
-		btnNuevoMaterial.setBounds(535, 167, 134, 29);
-		contentPane.add(btnNuevoMaterial);
+		btnNuevo = new JButton("Nuevo material");
+		btnNuevo.setBounds(535, 167, 134, 29);
+		contentPane.add(btnNuevo);
 
-		btnBorrarMaterial = new JButton("Borrar material");
-		btnBorrarMaterial.setEnabled(false);
-		btnBorrarMaterial.setBounds(535, 257, 134, 29);
-		contentPane.add(btnBorrarMaterial);
+		btnBorrar = new JButton("Borrar material");
+		btnBorrar.setEnabled(false);
+		btnBorrar.setBounds(535, 257, 134, 29);
+		contentPane.add(btnBorrar);
 
-		btnModificarMaterial = new JButton("Modificar material");
-		btnModificarMaterial.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
-		btnModificarMaterial.setEnabled(false);
-		btnModificarMaterial.setBounds(535, 227, 134, 29);
-		contentPane.add(btnModificarMaterial);
+		btnModificar = new JButton("Modificar material");
+		btnModificar.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
+		btnModificar.setEnabled(false);
+		btnModificar.setBounds(535, 227, 134, 29);
+		contentPane.add(btnModificar);
 
-		btnBuscarMaterial = new JButton("Buscar material");
-		btnBuscarMaterial.setBounds(535, 197, 134, 29);
-		contentPane.add(btnBuscarMaterial);
+		btnBuscar = new JButton("Buscar material");
+		btnBuscar.setBounds(535, 197, 134, 29);
+		contentPane.add(btnBuscar);
 
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(550, 300, 117, 29);
@@ -155,11 +147,12 @@ public class VMaterial extends VentanaGenerica {
 		descripcion.addKeyListener(c);
 		stock.addKeyListener(c);
 
-		btnNuevoMaterial.addActionListener(c);
-		btnBorrarMaterial.addActionListener(c);
-		btnModificarMaterial.addActionListener(c);
-		btnBuscarMaterial.addActionListener(c);
+		btnNuevo.addActionListener(c);
+		btnBorrar.addActionListener(c);
+		btnModificar.addActionListener(c);
+		btnBuscar.addActionListener(c);
 		btnCancelar.addActionListener(c);
+		btnSalir.addActionListener(c);
 		table.addMouseListener(c);
 	}
 }
