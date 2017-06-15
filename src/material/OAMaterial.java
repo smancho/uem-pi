@@ -86,7 +86,7 @@ public class OAMaterial {
 	
 	public Material buscarMaterialPorID(String id) throws SQLException {
 		
-		String busSQL = "SELECT * FROM MATERIAL WHERE CODIGO_MATERIAL = "+ id;
+		String busSQL = "SELECT * FROM MATERIALWHERE CODIGO_MATERIAL = "+ id;
 		Statement stmt = conexion.prepareStatement(busSQL);
 
 		Material a = null;
