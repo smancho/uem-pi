@@ -35,6 +35,7 @@ public class VAsiste extends VentanaGenerica {
 	protected JLabel lblCodigoEvento;
 
 	public VAsiste() {
+		super();
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 700, 420);
 		setVisible(false);
@@ -51,7 +52,7 @@ public class VAsiste extends VentanaGenerica {
 		table = new JTable();
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Usuario", "Evento" }));
+				new String[] { "Evento", "Usuario" }));
 		scrollPane.setViewportView(table);
 
 		lblCodigoUsuario = new JLabel("Codigo usuario:");
@@ -117,6 +118,7 @@ public class VAsiste extends VentanaGenerica {
 		btnBorrarAsistencia.addActionListener(c);
 		btnBuscarAsistencia.addActionListener(c);
 		btnCancelar.addActionListener(c);
+		btnSalir.addActionListener(c);
 		table.addMouseListener(c);
 	}
 }

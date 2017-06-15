@@ -35,18 +35,29 @@ public class CAsiste extends MouseAdapter implements ActionListener,
 		this.vasiste = vasiste;
 		this.asistencias = new ArrayList<Asiste>();
 		this.bbdd = new OAAsiste(con);
-		
-		this.bbdd.cargarAsistencias(this.asistencias);
-		this.rellenarTabla();
+		this.recargarTabla();
+	}
+
+	private void recargarTabla() {
+		try {
+			this.asistencias = bbdd.cargarAsistencias();
+			this.rellenarTabla();
+		} catch (Exception e) {
+			vasiste.lblAviso.setText("Error al cargar la tabla de asistencias");
+			System.err.println(e.getMessage());
+			e.printStackTrace(System.err);
+		}
 	}
 
 	public void rellenarTabla() {
-		DefaultTableModel table = (DefaultTableModel) vasiste.table
-				.getModel();
+		DefaultTableModel model = (DefaultTableModel)vasiste.table.getModel();
+		for(int i = model.getRowCount(); i > 0; i--) {
+			model.removeRow(0);
+		}
+		
 		for (Asiste a : asistencias) {
-			table.addRow(new Object[] { 
-					a.getCodigoUsuario() + ": " + a.getNombreApellidos(), 
-					a.getCodigoEvento() + ": " + a.getEvento()
+			model.addRow(new Object[] {  
+					a.getEvento() , a.getNombreApellidos(), 
 			});
 		}
 
@@ -58,6 +69,7 @@ public class CAsiste extends MouseAdapter implements ActionListener,
 		
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object obj = e.getSource();
 		if (obj == vasiste.btnNuevaAsistencia) {
@@ -68,7 +80,6 @@ public class CAsiste extends MouseAdapter implements ActionListener,
 			borrarAsistencia();
 		} else if (obj == vasiste.btnCancelar) {
 			resetFormFields();
-
 		} else if (obj == vasiste.btnSalir) {
 			vasiste.dispose();
 		}
@@ -107,6 +118,7 @@ public class CAsiste extends MouseAdapter implements ActionListener,
 		table.removeRow(fila);
 		asistencias.remove(fila);
 
+		recargarTabla();
 		resetFormFields();
 	}
 
@@ -130,6 +142,7 @@ public class CAsiste extends MouseAdapter implements ActionListener,
 						a.getCodigoEvento(), a.getEvento() });
 
 				resetFormFields();
+				recargarTabla();
 			} catch (SQLException ex) {
 				if (ex.getErrorCode() == 1) {
 					vasiste.lblAviso.setText("Asistencia duplicada.");
