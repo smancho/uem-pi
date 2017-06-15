@@ -134,7 +134,8 @@ public class CPedido extends MouseAdapter implements ActionListener,
 		} else
 			try {
 				Pedido pedido = new Pedido(
-					0, vpedido.cifProveedor.getText(), 0,
+					Integer.parseInt(vpedido.codigoPedido.getText()), 
+					vpedido.cifProveedor.getText(), 0,
 					Fechas.toOracleFormat(vpedido.fecha.getDate())
 				);
 				this.bbdd.insertarPedido(pedido);

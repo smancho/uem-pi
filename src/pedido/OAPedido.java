@@ -47,18 +47,20 @@ public class OAPedido {
 		String cadSQL = null;
 		stmt=conexion.createStatement();
 		
-		cadSQL = "INSERT INTO PEDIDO "
-				+ "(FECHA, PRECIO_TOTAL, CIF_PROVEEDOR) "
+		cadSQL = "INSERT INTO "
+					+ "PEDIDO "
 				+ "VALUES("
-				+ "FECHA = TO_DATE('" + p.getFecha() + "', 'YYYY-MM-DD HH24:mi:SS'), "
-				+ "(select sum(precio*cantidad)" 
-				+ " from pedido p, linea_pedido l"
-				+ " where p.codigo_pedido = l.codigo_pedido"
-				+ " and p.codigo_pedido = "
-				+ p.getCodigoPedido()
-				+ "), "
-				+ "'" + p.getCifProveedor() + "', "
-				
+					+ p.getCodigoPedido() + ", "
+					+ "TO_DATE('" + p.getFecha() + "', 'YYYY-MM-DD HH24:mi:SS'), "
+					+ "(select "
+						+ "sum(precio*cantidad) " 
+					+ "from "
+						+ "pedido p, linea_pedido l"
+					+ " where "
+						+ "p.codigo_pedido = l.codigo_pedido "
+						+ "and p.codigo_pedido = " + p.getCodigoPedido()
+					+ "), "
+					+ "'" + p.getCifProveedor() + "', "
 				+ ")";
 		stmt.executeUpdate(cadSQL);
 		stmt.close();

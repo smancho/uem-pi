@@ -39,7 +39,7 @@ public class VPedido extends VentanaGenerica {
 	private JLabel lblLogoLabel;
 	
 	public VPedido() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 700, 420);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -55,7 +55,7 @@ public class VPedido extends VentanaGenerica {
 		table = new JTable();
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		table.setModel(new DefaultTableModel(new Object[][] {}, new String[] {
-				"codigoPedido", "Fecha_pedido", "Precio", "cifProveedor" }));
+				"Codigo pedido", "Fecha pedido", "Precio", "CIF proveedor" }));
 		scrollPane.setViewportView(table);
 
 		JLabel lblCodigo = new JLabel("Codigo pedido:");
@@ -150,6 +150,7 @@ public class VPedido extends VentanaGenerica {
 		btnModificarPedido.addActionListener(c);
 		btnBuscarPedido.addActionListener(c);
 		btnCancelar.addActionListener(c);
+		btnSalir.addActionListener(c);
 
 		table.addMouseListener(c);
 		
