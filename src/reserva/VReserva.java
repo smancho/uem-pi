@@ -24,16 +24,8 @@ public class VReserva extends VentanaGenerica {
 
 	private static final long serialVersionUID = 1L;
 	protected JPanel contentPane;
-	protected JTable table;
-	protected JButton btnNuevaReserva;
-	protected JButton btnBuscarReserva;
-	protected JButton btnModificarReserva;
-	protected JButton btnBorrarReserva;
-	protected JButton btnCancelar;
-	protected JButton btnSalir;
 	protected JTextField codigoProyecto;
 	protected JTextField codigoMaquina;
-	protected JLabel lblAviso;
 	protected JLabel lblLogoLabel;
 	protected JLabel lblcodigoProyecto;
 	protected JLabel lblcodigoMaquina;
@@ -58,7 +50,7 @@ public class VReserva extends VentanaGenerica {
 		table = new JTable();
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Proyecto", "Maquina", "Fecha Inicio", "Fecha Fin" }));
+				new String[] { "Proyecto", "Nombre Proyecto", "Maquina", "Nombre Maquina", "Fecha Inicio", "Fecha Fin" }));
 		scrollPane.setViewportView(table);
 
 		lblcodigoProyecto = new JLabel("Codigo proyecto:");
@@ -110,20 +102,20 @@ public class VReserva extends VentanaGenerica {
 		contentPane.add(fechaFin, BorderLayout.NORTH);
 		
 
-		btnNuevaReserva = new JButton("Nueva reserva");
-		btnNuevaReserva.setBounds(535, 177, 134, 29);
-		contentPane.add(btnNuevaReserva);
+		btnNuevo = new JButton("Nueva reserva");
+		btnNuevo.setBounds(535, 177, 134, 29);
+		contentPane.add(btnNuevo);
 
 
-		btnBuscarReserva = new JButton("Buscar reserva");
-		btnBuscarReserva.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		btnBuscarReserva.setBounds(535, 217, 134, 29);
-		contentPane.add(btnBuscarReserva );
+		btnBuscar = new JButton("Buscar reserva");
+		btnBuscar.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		btnBuscar.setBounds(535, 217, 134, 29);
+		contentPane.add(btnBuscar );
 		
-		btnBorrarReserva = new JButton("Borrar reserva");
-		btnBorrarReserva.setEnabled(false);
-		btnBorrarReserva.setBounds(535, 257, 134, 29);
-		contentPane.add(btnBorrarReserva);
+		btnBorrar = new JButton("Borrar reserva");
+		btnBorrar.setEnabled(false);
+		btnBorrar.setBounds(535, 257, 134, 29);
+		contentPane.add(btnBorrar);
 
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(550, 300, 117, 29);
@@ -140,10 +132,9 @@ public class VReserva extends VentanaGenerica {
 		codigoProyecto.addKeyListener(c);
 		
 
-		btnNuevaReserva.addActionListener(c);
-		btnBuscarReserva.addActionListener(c);
-		btnModificarReserva.addActionListener(c);
-		btnBorrarReserva.addActionListener(c);
+		btnNuevo.addActionListener(c);
+		btnBuscar.addActionListener(c);
+		btnBorrar.addActionListener(c);
 		btnCancelar.addActionListener(c);
 		btnSalir.addActionListener(c);
 		table.addMouseListener(c);
