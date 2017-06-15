@@ -24,17 +24,9 @@ public class VEvento extends VentanaGenerica {
 
 	private static final long serialVersionUID = 1L;
 	protected JPanel contentPane;
-	protected JTable table;
-	protected JButton btnNuevoEvento;
-	protected JButton btnBuscarEvento;
-	protected JButton btnModificarEvento;
-	protected JButton btnBorrarEvento;
-	protected JButton btnCancelar;
-	protected JButton btnSalir;
 	protected JTextField codigoEvento;
 	protected JTextField tipoEvento;
 	protected JTextField descripcion;
-	protected JLabel lblAviso;
 	protected JLabel lblLogoLabel;
 	protected JLabel lblCodigoEvento;
 	protected JLabel lblTipoEvento;
@@ -121,25 +113,25 @@ public class VEvento extends VentanaGenerica {
 		contentPane.add(fechaFin, BorderLayout.NORTH);
 		
 
-		btnNuevoEvento = new JButton("Nuevo evento");
-		btnNuevoEvento.setBounds(535, 150, 134, 29);
-		contentPane.add(btnNuevoEvento);
+		btnNuevo = new JButton("Nuevo evento");
+		btnNuevo.setBounds(535, 150, 134, 29);
+		contentPane.add(btnNuevo);
 
 
-		btnBuscarEvento = new JButton("Buscar evento");
-		btnBuscarEvento .setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		btnBuscarEvento .setBounds(535, 185, 134, 29);
-		contentPane.add(btnBuscarEvento );
+		btnBuscar = new JButton("Buscar evento");
+		btnBuscar .setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		btnBuscar .setBounds(535, 185, 134, 29);
+		contentPane.add(btnBuscar );
 		
-		btnModificarEvento = new JButton("Modificar evento");
-		btnModificarEvento.setEnabled(false);
-		btnModificarEvento.setBounds(535, 220, 134, 29);
-		contentPane.add(btnModificarEvento);
+		btnModificar = new JButton("Modificar evento");
+		btnModificar.setEnabled(false);
+		btnModificar.setBounds(535, 220, 134, 29);
+		contentPane.add(btnModificar);
 		
-		btnBorrarEvento = new JButton("Borrar evento");
-		btnBorrarEvento.setEnabled(false);
-		btnBorrarEvento.setBounds(535, 255, 134, 29);
-		contentPane.add(btnBorrarEvento);
+		btnBorrar = new JButton("Borrar evento");
+		btnBorrar.setEnabled(false);
+		btnBorrar.setBounds(535, 255, 134, 29);
+		contentPane.add(btnBorrar);
 
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(550, 300, 117, 29);
@@ -156,11 +148,12 @@ public class VEvento extends VentanaGenerica {
 		codigoEvento.addKeyListener(c);
 		
 
-		btnNuevoEvento.addActionListener(c);
-		btnBuscarEvento.addActionListener(c);
-		btnModificarEvento.addActionListener(c);
-		btnBorrarEvento.addActionListener(c);
+		btnNuevo.addActionListener(c);
+		btnBuscar.addActionListener(c);
+		btnModificar.addActionListener(c);
+		btnBorrar.addActionListener(c);
 		btnCancelar.addActionListener(c);
+		btnSalir.addActionListener(c);
 		table.addMouseListener(c);
 	}
 }

@@ -7,6 +7,8 @@ public class Evento {
 	private String fechaInicio;
 	private String fechaFin;
 
+	public Evento() {}
+	
 	public Evento(int codigoEvento, String tipo, String descripcion,
 			String fechaInicio, String fechaFin) {
 		this.codigoEvento = codigoEvento;
