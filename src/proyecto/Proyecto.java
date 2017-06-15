@@ -6,6 +6,9 @@ public class Proyecto {
 	private String nombreProyecto;
 	private String descripcion;
 
+	public Proyecto() {
+	}
+	
 	public Proyecto(int codigoProyecto, String nombreProyecto,
 			String descripcion) {
 		super();

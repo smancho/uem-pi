@@ -21,17 +21,9 @@ public class VProyecto extends VentanaGenerica {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	protected JTable table;
-	protected JButton btnNuevoProyecto;
-	protected JButton btnBuscarProyecto;
-	protected JButton btnModificarProyecto;
-	protected JButton btnBorrarProyecto;
-	protected JButton btnCancelar;
-	protected JButton btnSalir;
 	protected JTextField codigoProyecto;
 	protected JTextField nombreProyecto;
 	protected JTextField descripcion;
-	protected JLabel lblAviso;
 	protected JLabel lblLogoLabel;
 	protected JLabel lblCodigoProyecto;
 	protected JLabel lblNombreProyecto;
@@ -95,24 +87,24 @@ public class VProyecto extends VentanaGenerica {
 		contentPane.add(descripcion);
 		descripcion.setColumns(10);
 
-		btnNuevoProyecto = new JButton("Nuevo proyecto");
-		btnNuevoProyecto.setBounds(535, 150, 134, 29);
-		contentPane.add(btnNuevoProyecto);
+		btnNuevo = new JButton("Nuevo proyecto");
+		btnNuevo.setBounds(535, 150, 134, 29);
+		contentPane.add(btnNuevo);
 		
-		btnBuscarProyecto = new JButton("Buscar proyecto");
-		btnBuscarProyecto.setBounds(535, 185, 134, 29);
-		contentPane.add(btnBuscarProyecto);
+		btnBuscar = new JButton("Buscar proyecto");
+		btnBuscar.setBounds(535, 185, 134, 29);
+		contentPane.add(btnBuscar);
 
-		btnModificarProyecto = new JButton("Modificar proyecto");
-		btnModificarProyecto.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
-		btnModificarProyecto.setEnabled(false);
-		btnModificarProyecto.setBounds(535, 220, 134, 29);
-		contentPane.add(btnModificarProyecto);
+		btnModificar = new JButton("Modificar proyecto");
+		btnModificar.setFont(new Font("Lucida Grande", Font.PLAIN, 12));
+		btnModificar.setEnabled(false);
+		btnModificar.setBounds(535, 220, 134, 29);
+		contentPane.add(btnModificar);
 
-		btnBorrarProyecto = new JButton("Borrar proyecto");
-		btnBorrarProyecto.setEnabled(false);
-		btnBorrarProyecto.setBounds(535, 255, 134, 29);
-		contentPane.add(btnBorrarProyecto);
+		btnBorrar = new JButton("Borrar proyecto");
+		btnBorrar.setEnabled(false);
+		btnBorrar.setBounds(535, 255, 134, 29);
+		contentPane.add(btnBorrar);
 
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(550, 300, 117, 29);
@@ -130,11 +122,12 @@ public class VProyecto extends VentanaGenerica {
 		descripcion.addKeyListener(c);
 		
 
-		btnNuevoProyecto.addActionListener(c);
-		btnModificarProyecto.addActionListener(c);
-		btnBuscarProyecto.addActionListener(c);
-		btnBorrarProyecto.addActionListener(c);
+		btnNuevo.addActionListener(c);
+		btnModificar.addActionListener(c);
+		btnBuscar.addActionListener(c);
+		btnBorrar.addActionListener(c);
 		btnCancelar.addActionListener(c);
+		btnSalir.addActionListener(c);
 		table.addMouseListener(c);
 	}
 }
