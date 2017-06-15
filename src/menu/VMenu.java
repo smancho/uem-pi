@@ -35,19 +35,22 @@ public class VMenu extends VentanaGenerica {
 	protected JMenu menuMaquina;
 	protected JMenu menuMaterial;
 	protected JMenu menuProveedor;
-	protected JMenuItem miUsuarioGestion, miUsuarioAsisteEvento, miUsuarioPlanificaProyecto;
+	protected JMenuItem miUsuarioGestion, miUsuarioAsiste, miUsuarioPlanifica;
 	protected JMenuItem miEventoGestion, miEventoAsiste, miEventoCalendario;
-	protected JMenuItem miProyectoGestion, miProyectoReserva, miProyectoUsa, miProyectoPlan;
+	protected JMenuItem miProyectoGestion, miProyectoReserva, miProyectoUsa, miProyectoPlan;	
 	protected JMenuItem miMaquinaGestion, miMaquinaReserva;
-	protected JMenuItem miMaterialGestion, miMaterialProyecto, miMaterialLineaPedido;
+	protected JMenuItem miMaterialGestion, miMaterialProyecto, miMaterialLinea;
 	protected JMenuItem miProveedorGestion, miProveedorPedido;
 
 	public VMenu() {
+		setTitle("FABLABUE - Proyecto final");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setMaximumSize(new Dimension(1024, 768));
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(new BorderLayout(0,0));
 
 		menuBar = new JMenuBar();
 		menuBar.setBackground(Color.LIGHT_GRAY);
@@ -56,11 +59,11 @@ public class VMenu extends VentanaGenerica {
 
 		menuUsuario = new JMenu("Usuario");		
 		miUsuarioGestion = new JMenuItem("Gestion de usuario");
-		miUsuarioAsisteEvento = new JMenuItem("Asiste a evento");
-		miUsuarioPlanificaProyecto = new JMenuItem("Planifica proyecto");
+		miUsuarioAsiste = new JMenuItem("Asiste a evento");
+		miUsuarioPlanifica = new JMenuItem("Planifica proyecto");
 		menuUsuario.add(miUsuarioGestion);
-		menuUsuario.add(miUsuarioAsisteEvento);
-		menuUsuario.add(miUsuarioPlanificaProyecto);
+		menuUsuario.add(miUsuarioAsiste);
+		menuUsuario.add(miUsuarioPlanifica);
 		menuBar.add(menuUsuario);
 
 		menuEvento = new JMenu("Evento");
@@ -95,10 +98,10 @@ public class VMenu extends VentanaGenerica {
 		menuMaterial = new JMenu("Material");
 		miMaterialGestion = new JMenuItem("Gestion de material");
 		miMaterialProyecto = new JMenuItem("Proyecto que lo usa");
-		miMaterialLineaPedido = new JMenuItem("Linea de pedido");
+		miMaterialLinea = new JMenuItem("Linea de pedido");
 		menuMaterial.add(miMaterialGestion);
 		menuMaterial.add(miMaterialProyecto);
-		menuMaterial.add(miMaterialLineaPedido);
+		menuMaterial.add(miMaterialLinea);
 		menuBar.add(menuMaterial);
 
 
@@ -110,10 +113,10 @@ public class VMenu extends VentanaGenerica {
 		menuBar.add(menuProveedor);
 
 		miUsuarioGestion.setEnabled(true);		
-		miUsuarioAsisteEvento.setEnabled(true);
-		miUsuarioPlanificaProyecto.setEnabled(true);
+		miUsuarioAsiste.setEnabled(true);
+		miUsuarioPlanifica.setEnabled(true);
 		miEventoGestion.setEnabled(true);
-		miUsuarioAsisteEvento.setEnabled(true);
+		miEventoAsiste.setEnabled(true);
 		miEventoCalendario.setEnabled(true);
 		miProyectoGestion.setEnabled(true);
 		miProyectoPlan.setEnabled(true);
@@ -123,7 +126,7 @@ public class VMenu extends VentanaGenerica {
 		miMaquinaReserva.setEnabled(true);
 		miMaterialGestion.setEnabled(true);
 		miMaterialProyecto.setEnabled(true);
-		miMaterialLineaPedido.setEnabled(true);
+		miMaterialLinea.setEnabled(true);
 		miProveedorGestion.setEnabled(true);
 		miProveedorPedido.setEnabled(true);
 
@@ -166,11 +169,11 @@ public class VMenu extends VentanaGenerica {
 	
 	public void setControlador(MenuControl controlador) {
 		miUsuarioGestion.addActionListener(controlador);
-		miUsuarioAsisteEvento.addActionListener(controlador);
-		miUsuarioPlanificaProyecto.addActionListener(controlador);
+		miUsuarioAsiste.addActionListener(controlador);
+		miUsuarioPlanifica.addActionListener(controlador);
 		
 		miEventoGestion.addActionListener(controlador);
-		miUsuarioAsisteEvento.addActionListener(controlador);
+		miEventoAsiste.addActionListener(controlador);
 		miEventoCalendario.addActionListener(controlador);
 		
 		miProyectoGestion.addActionListener(controlador);
@@ -183,7 +186,7 @@ public class VMenu extends VentanaGenerica {
 		
 		miMaterialGestion.addActionListener(controlador);
 		miMaterialProyecto.addActionListener(controlador);
-		miMaterialLineaPedido.addActionListener(controlador);
+		miMaterialLinea.addActionListener(controlador);
 		
 		miProveedorGestion.addActionListener(controlador);
 		miProveedorPedido.addActionListener(controlador);
@@ -191,12 +194,6 @@ public class VMenu extends VentanaGenerica {
 		btnSalir.addActionListener(controlador);
 
 	}
-	
-	public void centrarEnPantalla() {
-		Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-		this.setBounds(0, 0, dim.width, dim.height);		
-	}
-	
 	
 }
 

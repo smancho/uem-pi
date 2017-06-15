@@ -42,17 +42,9 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 	
 	public MenuControl(VMenu vmenu) {
 		this.vmenu = vmenu;
-		try {
-			conn = ConexionOracle.conectar();
-		} catch (SQLException e) {
-			System.err.println("Error al conectar con la bdd:" + e.getMessage());
-			e.printStackTrace();			
-		} catch (ClassNotFoundException e) {
-			System.err.println("Excepcion de configuracion:" + e.getMessage());
-			e.printStackTrace();			
-		} catch (Exception e) {
-			System.err.println("Excepcion no esperada:" + e.getMessage());
-			e.printStackTrace();
+		
+		if (!this.connectarBDD()) {
+			System.err.println("No se ha podido conectar con la BDD");
 		}
 		
 		iniciarMenuUsuario();
@@ -64,7 +56,35 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 		
 	}
 	
+	private boolean connectarBDD() {
+		try {
+			conn = ConexionOracle.conectar();
+			return true;
+		} catch (SQLException e) {
+			System.err.println("Error al conectar con la bdd:" + e.getMessage());
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			System.err.println("Excepcion de configuracion:" + e.getMessage());
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.err.println("Excepcion no esperada:" + e.getMessage());
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	private void desconectarBDD() {
+		try {
+			ConexionOracle.desconectar(conn);
+		} catch (NullPointerException | SQLException exception) {
+			System.err.println("Error cerrando conexion a bdd");
+			System.err.println(exception.getMessage());
+			exception.printStackTrace(System.err);
+		}		
+	}
+	
 	private void iniciarMenuUsuario() {
+		
 		vmenu.miUsuarioGestion.addActionListener(new ActionListener() {			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -76,7 +96,7 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 			}
 		});
 		
-		vmenu.miUsuarioAsisteEvento.addActionListener(new ActionListener() {
+		vmenu.miUsuarioAsiste.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				VAsiste vasiste = new VAsiste();
@@ -87,7 +107,7 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 			}
 		});
 		
-		vmenu.miUsuarioPlanificaProyecto.addActionListener(new ActionListener() {
+		vmenu.miUsuarioPlanifica.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -128,7 +148,7 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 	}
 	private void iniciarMenuProyecto() {
 		
-		vmenu.miProveedorGestion.addActionListener(new ActionListener() {
+		vmenu.miProyectoGestion.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -229,7 +249,7 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 			}
 		});
 		
-		vmenu.miMaterialLineaPedido.addActionListener(new ActionListener(){
+		vmenu.miMaterialLinea.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -271,14 +291,19 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 	
 	
 	
-	
 		
 	public void mouseClicked(MouseEvent e) {
-		Object obj = e.getSource();
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		Object obj = e.getSource();
+		Object source = e.getSource();
+		if (source == vmenu.btnSalir) {
+			this.desconectarBDD();
+			System.out.println("Cerrando aplicacion FABLABUE. Bye ;)");
+			vmenu.dispose();
+			System.exit(0);
+		}
+
 	}
 
 	@Override
@@ -289,17 +314,13 @@ public class MenuControl extends MouseAdapter implements ActionListener, WindowL
 
 	@Override
 	public void windowClosing(WindowEvent e) {
-		try {
-			ConexionOracle.desconectar(conn);
-		} catch (NullPointerException | SQLException exception) {
-			System.err.println("Error cerrando conexion a bdd");
-			System.err.println(exception.getMessage());
-			exception.printStackTrace(System.err);
-		}
+		this.desconectarBDD();
 	}
 
 	@Override
-	public void windowClosed(WindowEvent e) {}
+	public void windowClosed(WindowEvent e) {
+		this.desconectarBDD();
+	}
 
 	@Override
 	public void windowIconified(WindowEvent e) {}
