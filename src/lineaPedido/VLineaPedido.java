@@ -22,18 +22,10 @@ public class VLineaPedido extends VentanaGenerica {
 
 	private static final long serialVersionUID = 1L;
 	protected JPanel contentPane;
-	protected JTable table;
-	protected JButton btnNuevaLinea;
-	protected JButton btnBuscarLinea;
-	protected JButton btnModificarLinea;
-	protected JButton btnBorrarLinea;
-	protected JButton btnCancelar;
-	protected JButton btnSalir;
 	protected JTextField codigoPedido;
 	protected JTextField codigoMaterial;
 	protected JTextField cantidad;
 	protected JTextField precio;
-	protected JLabel lblAviso;
 	protected JLabel lblLogoLabel;
 	protected JLabel lblcodigoProyecto;
 	protected JLabel lblcodigoMaterial;
@@ -56,7 +48,7 @@ public class VLineaPedido extends VentanaGenerica {
 		table = new JTable();
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Cod. pedido", "Cod. material", "Cantidad", "Precio" }));
+				new String[] { "Cod. pedido", "Cod. material", "Material", "Cantidad", "Precio" }));
 		scrollPane.setViewportView(table);
 
 		lblcodigoProyecto = new JLabel("Codigo pedido:");
@@ -106,25 +98,25 @@ public class VLineaPedido extends VentanaGenerica {
 		contentPane.add(precio, BorderLayout.NORTH);
 		
 
-		btnNuevaLinea = new JButton("Nueva linea");
-		btnNuevaLinea.setBounds(535, 150, 134, 29);
-		contentPane.add(btnNuevaLinea);
+		btnNuevo = new JButton("Nueva linea");
+		btnNuevo.setBounds(535, 150, 134, 29);
+		contentPane.add(btnNuevo);
 
 
-		btnBuscarLinea = new JButton("Buscar linea");
-		btnBuscarLinea.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		btnBuscarLinea.setBounds(535, 185, 134, 29);
-		contentPane.add(btnBuscarLinea );
+		btnBuscar = new JButton("Buscar linea");
+		btnBuscar.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		btnBuscar.setBounds(535, 185, 134, 29);
+		contentPane.add(btnBuscar );
 		
-		btnModificarLinea = new JButton("Modificar linea");
-		btnModificarLinea.setEnabled(false);
-		btnModificarLinea.setBounds(535, 220, 134, 29);
-		contentPane.add(btnModificarLinea);
+		btnModificar = new JButton("Modificar linea");
+		btnModificar.setEnabled(false);
+		btnModificar.setBounds(535, 220, 134, 29);
+		contentPane.add(btnModificar);
 		
-		btnBorrarLinea = new JButton("Borrar linea");
-		btnBorrarLinea.setEnabled(false);
-		btnBorrarLinea.setBounds(535, 255, 134, 29);
-		contentPane.add(btnBorrarLinea);
+		btnBorrar = new JButton("Borrar linea");
+		btnBorrar.setEnabled(false);
+		btnBorrar.setBounds(535, 255, 134, 29);
+		contentPane.add(btnBorrar);
 
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(550, 300, 117, 29);
@@ -142,10 +134,10 @@ public class VLineaPedido extends VentanaGenerica {
 		cantidad.addKeyListener(c);
 		precio.addKeyListener(c);		
 
-		btnNuevaLinea.addActionListener(c);
-		btnBuscarLinea.addActionListener(c);
-		btnModificarLinea.addActionListener(c);
-		btnBorrarLinea.addActionListener(c);
+		btnNuevo.addActionListener(c);
+		btnBuscar.addActionListener(c);
+		btnModificar.addActionListener(c);
+		btnBorrar.addActionListener(c);
 		btnCancelar.addActionListener(c);
 		btnSalir.addActionListener(c);
 		table.addMouseListener(c);
