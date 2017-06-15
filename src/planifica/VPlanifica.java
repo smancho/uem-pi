@@ -50,7 +50,7 @@ public class VPlanifica extends VentanaGenerica {
 		table = new JTable();
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Usuario", "Proyecto" }));
+				new String[] { "Proyecto", "Usuario" }));
 		scrollPane.setViewportView(table);
 
 		lblcodigoUsuario = new JLabel("Codigo usuario:");

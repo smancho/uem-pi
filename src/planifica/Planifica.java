@@ -4,7 +4,11 @@ public class Planifica {
 
 	private int codigoUsuario;
 	private int codigoProyecto;
+	private String nombreProyecto;
+	private String nombreUsuario;
 
+	public Planifica() {}
+	
 	public Planifica(int CodigoUsuario, int CodigoProyecto) {
 		this.codigoProyecto = CodigoProyecto;
 		this.codigoUsuario = CodigoUsuario;
@@ -24,6 +28,22 @@ public class Planifica {
 
 	public void setCodigoProyecto(int codigoProyecto) {
 		this.codigoProyecto = codigoProyecto;
+	}
+
+	public String getNombreProyecto() {
+		return nombreProyecto;
+	}
+
+	public void setNombreProyecto(String nombreProyecto) {
+		this.nombreProyecto = nombreProyecto;
+	}
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
 	}
 
 }
