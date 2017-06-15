@@ -94,6 +94,7 @@ public class CUsuario extends MouseAdapter implements ActionListener,
 	private void resetFormFields() {
 		this.resetFormFields(true);
 	}
+	
 	private void resetFormFields(boolean resetUsuarioID) {
 		if (resetUsuarioID) {
 			vusuario.usuarioID.setText("");
@@ -258,13 +259,11 @@ public class CUsuario extends MouseAdapter implements ActionListener,
 			model.removeRow(0);
 		}
 		
-		DefaultTableModel table = (DefaultTableModel) vusuario.table.getModel();
 		for (Usuario usr1 : usuarios) {
 			Object[] rowData = { usr1.getUsuarioID(), usr1.getNombre(),
 					usr1.getApellidos(), usr1.getMail(), usr1.getTelefono(),
 					usr1.getTipoUsuario() };
-			table.addRow(rowData);
-
+			model.addRow(rowData);
 		}
 	}
 

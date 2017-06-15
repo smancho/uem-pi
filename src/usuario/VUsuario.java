@@ -90,7 +90,7 @@ public class VUsuario extends VentanaGenerica {
 
 		lblAviso = new JLabel("");
 		lblAviso.setForeground(Color.RED);
-		lblAviso.setBounds(200, 35, 200, 14);
+		lblAviso.setBounds(371, 117, 257, 14);
 		contentPane.add(lblAviso);
 		
 		lblLogoLabel = new JLabel("");
@@ -170,6 +170,7 @@ public class VUsuario extends VentanaGenerica {
 		btnModificarUsuario.addActionListener(c);
 		btnBuscarUsuario.addActionListener(c);
 		btnCancelar.addActionListener(c);
+		btnSalir.addActionListener(c);
 		table.addMouseListener(c);
 	}
 }
