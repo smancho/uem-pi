@@ -21,16 +21,9 @@ public class VUsa extends VentanaGenerica {
 
 	private static final long serialVersionUID = 1L;
 	protected JPanel contentPane;
-	protected JTable table;
-	protected JButton btnNuevoUso;
-	protected JButton btnBuscarUso;
-	protected JButton btnBorrarUso;
-	protected JButton btnCancelar;
-	protected JButton btnSalir;
 	protected JTextField codigoProyecto;
 	protected JTextField codigoMaterial;
 	protected JTextField cantidad;
-	protected JLabel lblAviso;
 	protected JLabel lblLogoLabel;
 	protected JLabel lblCodigoProyecto;
 	protected JLabel lblCodigoMaterial;
@@ -53,7 +46,11 @@ public class VUsa extends VentanaGenerica {
 		table = new JTable();
 		table.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "Proyecto", "Material", "Cantidad" }));
+				new String[] { 
+						"Proyecto", "Nombre Proyecto", 
+						"Material", "Nombre Material", 
+						"Cantidad" 
+				}));
 		scrollPane.setViewportView(table);
 
 		lblCodigoProyecto = new JLabel("Codigo proyecto:");
@@ -94,19 +91,19 @@ public class VUsa extends VentanaGenerica {
 		contentPane.add(cantidad);
 		cantidad.setColumns(10);
 
-		btnNuevoUso = new JButton("Nuevo uso");
-		btnNuevoUso.setBounds(535, 177, 134, 29);
-		contentPane.add(btnNuevoUso);
+		btnNuevo = new JButton("Nuevo uso");
+		btnNuevo.setBounds(535, 177, 134, 29);
+		contentPane.add(btnNuevo);
 
-		btnBuscarUso = new JButton("Buscar uso");
-		btnBuscarUso.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
-		btnBuscarUso.setBounds(535, 217, 134, 29);
-		contentPane.add(btnBuscarUso);
+		btnBuscar = new JButton("Buscar uso");
+		btnBuscar.setFont(new Font("Lucida Grande", Font.PLAIN, 13));
+		btnBuscar.setBounds(535, 217, 134, 29);
+		contentPane.add(btnBuscar);
 		
-		btnBorrarUso = new JButton("Borrar uso");
-		btnBorrarUso.setEnabled(false);
-		btnBorrarUso.setBounds(535, 257, 134, 29);
-		contentPane.add(btnBorrarUso);
+		btnBorrar = new JButton("Borrar uso");
+		btnBorrar.setEnabled(false);
+		btnBorrar.setBounds(535, 257, 134, 29);
+		contentPane.add(btnBorrar);
 
 
 		btnCancelar = new JButton("Cancelar");
@@ -125,10 +122,11 @@ public class VUsa extends VentanaGenerica {
 		cantidad.addKeyListener(c);
 		
 
-		btnNuevoUso.addActionListener(c);
-		btnBorrarUso.addActionListener(c);
-		btnBuscarUso.addActionListener(c);
+		btnNuevo.addActionListener(c);
+		btnBorrar.addActionListener(c);
+		btnBuscar.addActionListener(c);
 		btnCancelar.addActionListener(c);
+		btnSalir.addActionListener(c);
 		table.addMouseListener(c);
 	}
 }
